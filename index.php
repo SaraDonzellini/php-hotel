@@ -51,8 +51,21 @@
         'vote' => 2,
         'distance_to_center' => 50
       ],
-
+      
     ];
+    
+    $parking = isset($_GET['parcheggio']);
+    if ($parking)  {
+      $hotelWithParking = [];
+      foreach ($hotels as $key => $value) {
+        if ($value['parking']) {
+          $hotelWithParking[]= $value;
+          
+        }
+      }
+      $hotels = $hotelWithParking;
+
+    }
 
     ?>
     <section class="container">
@@ -69,7 +82,9 @@
         <div class="col-6">
           <form action="./index.php" method="GET">
             <label for="parcheggio">Verifica se l'hotel ha un parcheggio</label>
-            <input type="checkbox" name="parcheggio" id="parcheggio">
+            <input type="checkbox" <?php echo 'ciao'; ?> name="parcheggio" id="parcheggio"><br>
+            <label for="voto">Cerca per voto dell'hotel</label>
+            <input type="number" name="voto" id="voto">
             <button type="submit">Cerca</button>
           </form>
         </div>
@@ -93,14 +108,6 @@
             echo "<div class='col-2'>$element</div>";
             echo "<br>";
           }
-        }
-        $parking = $_GET['parcheggio'];
-
-        $hotelParking = [];
-
-        if ($parking == 'on') {
-          foreach ($hotels as $key => $value);
-          
         }
 
         ?>
