@@ -55,17 +55,33 @@
     ];
 
     ?>
-    <p>
-      <?php
-      foreach ($hotels as $key => $value) {
-        foreach ($value as $key => $element) {
-          echo "$key: $element";
-          echo "<br>";
+    <section class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>
+            Hotels
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="row">
+        <!-- <div class="col-2"> -->
+        <?php
+        foreach ($hotels as $key => $value) {
+          foreach ($value as $my_key => $element) {
+            echo "<div class='col-2'>$element</div>";
+            echo "<br>";
+          }
         }
-      }
 
 
-      ?>
+        ?>
+
+        <!-- </div> -->
+      </div>
+    </section>
+    <p>
 
     </p>
 
