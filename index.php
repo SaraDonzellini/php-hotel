@@ -64,7 +64,18 @@
         }
       }
       $hotels = $hotelWithParking;
+    }
 
+    $vote = isset($_GET['voto']);
+    if ($vote)  {
+      $hotelVotes = [];
+      foreach ($hotels as $key => $value) {
+        if ($value['vote'] >= 1) {
+          $hotelVotes[]= $value;
+          
+        }
+      }
+      $hotels = $hotelVotes;
     }
 
     ?>
