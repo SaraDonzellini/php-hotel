@@ -65,7 +65,7 @@
       $hotels = $hotelWithParking;
     }
 
-    $vote = isset($_GET['voto']);
+    $vote = ($_GET['voto']);
     if ($vote) {
       $hotelVotes = [];
       foreach ($hotels as $key => $value) {
@@ -73,7 +73,6 @@
           $hotelVotes[] = $value;
         }
       }
-      var_dump($hotelVotes);
       $hotels = $hotelVotes;
     }
 
