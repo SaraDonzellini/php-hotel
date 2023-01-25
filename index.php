@@ -67,7 +67,7 @@
     <section class="container">
       <div class="row">
         <div class="col-6">
-          <form action="./request.php" method="GET">
+          <form action="./index.php" method="GET">
             <label for="parcheggio">Verifica se l'hotel ha un parcheggio</label>
             <input type="checkbox" name="parcheggio" id="parcheggio">
             <button type="submit">Cerca</button>
@@ -95,7 +95,14 @@
             echo "<br>";
           }
         }
+        $parking = $_GET['parcheggio'];
 
+        $hotelParking = [];
+
+        if ($parking == 'on') {
+          foreach ($hotels as $key => $value)
+          
+        }
 
         ?>
 
