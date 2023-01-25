@@ -66,6 +66,27 @@
     </section>
     <section class="container">
       <div class="row">
+        <div class="col-6">
+          <form action="./request.php" method="GET">
+            <label for="parcheggio">Verifica se l'hotel ha un parcheggio</label>
+            <input type="checkbox" name="parcheggio" id="parcheggio">
+            <button type="submit">Cerca</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="row">
+        <div class="col-2"><h3>Nome</h3></div>
+        <div class="col-2"><h3>Descrizione</h3></div>
+        <div class="col-2"><h3>Parcheggio</h3></div>
+        <div class="col-2"><h3>Voto</h3></div>
+        <div class="col-2"><h3>Distanza dal centro</h3></div>
+      </div>
+
+    </section>
+    <section class="container">
+      <div class="row">
         <!-- <div class="col-2"> -->
         <?php
         foreach ($hotels as $key => $value) {
