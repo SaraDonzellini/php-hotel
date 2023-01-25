@@ -51,30 +51,29 @@
         'vote' => 2,
         'distance_to_center' => 50
       ],
-      
+
     ];
-    
+
     $parking = isset($_GET['parcheggio']);
-    if ($parking)  {
+    if ($parking) {
       $hotelWithParking = [];
       foreach ($hotels as $key => $value) {
         if ($value['parking']) {
-          $hotelWithParking[]= $value;
-          
+          $hotelWithParking[] = $value;
         }
       }
       $hotels = $hotelWithParking;
     }
 
     $vote = isset($_GET['voto']);
-    if ($vote)  {
+    if ($vote) {
       $hotelVotes = [];
       foreach ($hotels as $key => $value) {
-        if ($value['vote'] >= 1) {
-          $hotelVotes[]= $value;
-          
+        if ($value['vote'] >= $vote) {
+          $hotelVotes[] = $value;
         }
       }
+      var_dump($hotelVotes);
       $hotels = $hotelVotes;
     }
 
@@ -93,7 +92,9 @@
         <div class="col-6">
           <form action="./index.php" method="GET">
             <label for="parcheggio">Verifica se l'hotel ha un parcheggio</label>
-            <input type="checkbox" <?php echo 'ciao'; ?> name="parcheggio" id="parcheggio"><br>
+            <input type="checkbox" <?php if (isset($_GET['parcheggio'])) {
+                                      echo 'checked';
+                                    }  ?> name="parcheggio" id="parcheggio"><br>
             <label for="voto">Cerca per voto dell'hotel</label>
             <input type="number" name="voto" id="voto">
             <button type="submit">Cerca</button>
@@ -103,11 +104,21 @@
     </section>
     <section class="container">
       <div class="row">
-        <div class="col-2"><h3>Nome</h3></div>
-        <div class="col-2"><h3>Descrizione</h3></div>
-        <div class="col-2"><h3>Parcheggio</h3></div>
-        <div class="col-2"><h3>Voto</h3></div>
-        <div class="col-2"><h3>Distanza dal centro</h3></div>
+        <div class="col-2">
+          <h3>Nome</h3>
+        </div>
+        <div class="col-2">
+          <h3>Descrizione</h3>
+        </div>
+        <div class="col-2">
+          <h3>Parcheggio</h3>
+        </div>
+        <div class="col-2">
+          <h3>Voto</h3>
+        </div>
+        <div class="col-2">
+          <h3>Distanza dal centro</h3>
+        </div>
       </div>
 
     </section>
