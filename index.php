@@ -64,16 +64,18 @@
       }
       $hotels = $hotelWithParking;
     }
-
-    $vote = $_GET['voto'];
-    if ($vote) {
-      $hotelVotes = [];
-      foreach ($hotels as $key => $value) {
-        if ($value['vote'] >= $vote) {
-          $hotelVotes[] = $value;
+    if (isset($_GET['voto']) && $_GET['voto'] !== '') {
+      $vote = $_GET['voto'];
+      if ($vote) {
+        $hotelVotes = [];
+        foreach ($hotels as $key => $value) {
+          if ($value['vote'] >= $vote) {
+            $hotelVotes[] = $value;
+          }
         }
+        $hotels = $hotelVotes;
       }
-      $hotels = $hotelVotes;
+      
     }
 
     ?>
