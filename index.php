@@ -87,7 +87,6 @@
     </section>
     <section class="container">
       <div class="row">
-        <!-- <div class="col-2"> -->
         <?php
         foreach ($hotels as $key => $value) {
           foreach ($value as $my_key => $element) {
@@ -100,13 +99,12 @@
         $hotelParking = [];
 
         if ($parking == 'on') {
-          foreach ($hotels as $key => $value)
+          foreach ($hotels as $key => $value);
           
         }
 
         ?>
 
-        <!-- </div> -->
       </div>
     </section>
     <p>
